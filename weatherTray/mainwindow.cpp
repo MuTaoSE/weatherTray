@@ -93,10 +93,10 @@ void MainWindow::analyWeatherXML(QByteArray json)
         QJsonArray forecast = jsonDoc.object().value("daily").toArray();
         ui->labelTime->setText(jsonDoc.object().value("updateTime").toString());
         QJsonObject day1 = forecast[0].toObject(); //今天
-        filename = "C:\\QtObj\\weatherTray\\icon\\" + day1.value("iconDay").toString() + ".png";
+        filename = ":\\icon\\" + day1.value("iconDay").toString() + ".png";
         qDebug() << filename;
         img->load(filename);
-        ui->img1->setPixmap(QPixmap::fromImage(*img));
+        ui->img1->setPixmap(QPixmap::fromImage(img->scaled(70,70)));
         ui->textBrowserday1->clear();
         ui->textBrowserday1->append(JsonObj2String(day1));
         ui->textBrowserday1->setStyleSheet("background:transparent");
@@ -107,7 +107,7 @@ void MainWindow::analyWeatherXML(QByteArray json)
         ui->pressure->setText(day1.value("pressure").toString());
         ui->day1->setText(day1.value("fxDate").toString());
         QJsonObject day2 = forecast[1].toObject();
-        filename = "C:\\QtObj\\weatherTray\\icon\\" + day2.value("iconDay").toString() + ".png";
+        filename = ":\\icon\\" + day2.value("iconDay").toString() + ".png";
         qDebug() << filename;
         img->load(filename);
         ui->img2->setPixmap(QPixmap::fromImage(img->scaled(70,70)));
@@ -116,7 +116,7 @@ void MainWindow::analyWeatherXML(QByteArray json)
         ui->textBrowserday2->setStyleSheet("background:transparent");
         ui->day2->setText(day2.value("fxDate").toString());
         QJsonObject day3 = forecast[2].toObject();
-        filename = "C:\\QtObj\\weatherTray\\icon\\" + day3.value("iconDay").toString() + ".png";
+        filename = ":\\icon\\" + day3.value("iconDay").toString() + ".png";
         qDebug() << filename;
         img->load(filename);
         ui->img3->setPixmap(QPixmap::fromImage(img->scaled(70,70)));
@@ -125,7 +125,7 @@ void MainWindow::analyWeatherXML(QByteArray json)
         ui->textBrowserday3->setStyleSheet("background:transparent");
         ui->day3->setText(day3.value("fxDate").toString());
         QJsonObject day4 = forecast[3].toObject();
-        filename = "C:\\QtObj\\weatherTray\\icon\\" + day4.value("iconDay").toString() + ".png";
+        filename = ":\\icon\\" + day4.value("iconDay").toString() + ".png";
         qDebug() << filename;
         img->load(filename);
         ui->img4->setPixmap(QPixmap::fromImage(img->scaled(70,70)));
@@ -134,7 +134,7 @@ void MainWindow::analyWeatherXML(QByteArray json)
         ui->textBrowserday4->setStyleSheet("background:transparent");
         ui->day4->setText(day4.value("fxDate").toString());
         QJsonObject day5 = forecast[4].toObject();
-        filename = "C:\\QtObj\\weatherTray\\icon\\" + day5.value("iconDay").toString() + ".png";
+        filename = ":\\icon\\" + day5.value("iconDay").toString() + ".png";
         qDebug() << filename;
         img->load(filename);
         ui->img5->setPixmap(QPixmap::fromImage(img->scaled(70,70)));
@@ -142,10 +142,10 @@ void MainWindow::analyWeatherXML(QByteArray json)
         ui->textBrowserday5->append(JsonObj2String(day5));
         ui->textBrowserday5->setStyleSheet("background:transparent");
         ui->day5->setText(day5.value("fxDate").toString());
-        filename = "C:\\Users\\16595\\Downloads\\01.jpg";
+        filename = ":\\images\\01.jpg";
         qDebug() << filename;
         img->load(filename);
-        ui->qvxian->setPixmap(QPixmap::fromImage(*img));
+        ui->qvxian->setPixmap(QPixmap::fromImage(img->scaled(651,211)));
     }
     else if(message == "city"){
         if(json.isEmpty())

@@ -30,19 +30,14 @@ int main(int argc, char *argv[])
     QAction *action_forecast, *action_about, *action_quit;
     QSystemTrayIcon *systray;
     MainWindow window;
-    QPalette plt(window.palette());
-    plt.setColor(QPalette::WindowText,Qt::white);
-    //plt.setColor(QPalette::Background,Qt::black);
-    window.setPalette(plt);
     win = &window;
     // 移除最小化
     window.setWindowFlags((window.windowFlags() | Qt::CustomizeWindowHint) & ~Qt::WindowMinimizeButtonHint );
     // 不在任务栏显示
-    //window.setWindowFlags(Qt::Tool);
+    window.setWindowFlags(Qt::Tool);
     // 窗体透明
     window.setWindowOpacity(0.8);
     //窗体背景完全透明
-    window.setAttribute(Qt::WA_TranslucentBackground,true);
     window.show();
 
     systray = new QSystemTrayIcon();
